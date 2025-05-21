@@ -1046,6 +1046,28 @@
     <li data-option="d">Bright and clear</li>
   </ul>
 </div>
+      <script>
+  document.querySelectorAll('.question').forEach(question => {
+    const correct = question.dataset.correct;
+    const options = question.querySelectorAll('li');
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        options.forEach(opt => opt.classList.remove('correct', 'incorrect'));
+
+        const selected = option.getAttribute('data-option');
+        if (selected === correct) {
+          option.classList.add('correct');
+        } else {
+          option.classList.add('incorrect');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
 <script src="nelson.js"></script>
 </body>
 </html>
